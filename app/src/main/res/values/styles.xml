@@ -1,0 +1,48 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/md_white_1000</item>
+        <item name="colorAccent">@color/colorAccent</item>
+
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+
+        <item name="android:windowSoftInputMode">adjustPan</item>
+
+        <item name="android:windowBackground">@drawable/splashscreen</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+    </style>
+
+    <style name="MContainer">
+        <!--prevent click through previous fragment if backstacked-->
+        <item name="android:clickable">true</item>
+        <item name="android:background">@color/defaultBackgroundAndroid</item>
+    </style>
+
+    <style name="MIcon">
+        <item name="android:layout_width">@dimen/icon_buttonsize</item>
+        <item name="android:layout_height">@dimen/icon_buttonsize</item>
+        <item name="tint">#666666</item>
+        <item name="android:background">@color/transparent</item>
+    </style>
+
+    <style name="DialogTheme" parent="@style/Base.Theme.AppCompat.Light.Dialog">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+    <style name="MToolbarDark">
+        <item name="android:elevation" tools:targetApi="lollipop">4dp</item>
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="MIcon_Light">
+        <item name="android:foreground">@drawable/ripple_effect_circle_white</item>
+        <item name="android:layout_width">@dimen/icon_buttonsize</item>
+        <item name="android:layout_height">@dimen/icon_buttonsize</item>
+        <item name="tint">@color/md_white_1000</item>
+    </style>
+</resources>

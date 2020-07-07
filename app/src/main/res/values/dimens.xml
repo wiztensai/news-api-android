@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="statusbar_view_height">25dp</dimen>
+    <dimen name="icon_buttonsize">40dp</dimen>
+    <dimen name="anime_time">150</dimen>
+    <dimen name="cardview_radius">8dp</dimen>
+</resources>

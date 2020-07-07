@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/MContainer">
+
+    <com.google.android.material.appbar.AppBarLayout
+        app:elevation="4dp"
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scrimAnimationDuration="300"
+            app:contentScrim="@color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlways">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="81dp"
+                android:layout_gravity="top"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/fake_statusbar_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/statusbar_view_height"
+                        android:background="@color/colorPrimary"
+                        app:layout_collapseMode="pin"
+                        android:elevation="0dp"/>
+
+                    <LinearLayout
+                        android:paddingEnd="8dp"
+                        android:paddingStart="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:gravity="center_vertical|end">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible">
+
+                            <ImageButton
+                                android:id="@+id/btnNotif"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@color/transparent"
+                                android:tint="@color/md_white_1000"
+                                app:srcCompat="@drawable/ic_arrow_back_24" />
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_marginStart="8dp"
+                            android:id="@+id/btnSearch"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_round_white"
+                            android:gravity="start|center_vertical"
+                            android:paddingLeft="16dp">
+
+                            <ImageButton
+                                android:layout_marginEnd="8dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/transparent"
+                                android:clickable="false"
+                                android:tint="@color/md_grey_600"
+                                app:srcCompat="@drawable/ic_search_24" />
+
+                            <EditText
+                                android:id="@+id/etSearch"
+                                style="@style/FontStyleBody"
+                                android:gravity="center_vertical"
+                                android:layout_weight="1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/transparent"
+                                android:hint="Search news source..."
+                                android:textColor="@color/md_grey_500" />
+
+                            <ImageButton
+                                android:visibility="invisible"
+                                android:id="@+id/btnClearText"
+                                style="@style/MIcon"
+                                android:layout_marginEnd="8dp"
+                                android:background="@color/transparent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_close_24" />
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

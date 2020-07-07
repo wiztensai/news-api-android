@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">News Api</string>
+    <string name="search_not_found">Search not found</string>
+</resources>

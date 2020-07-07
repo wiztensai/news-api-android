@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/MContainer">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:background="@color/colorPrimary"
+        app:elevation="4dp"
+        android:translationZ="4dp"
+        android:id="@+id/appbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="81dp">
+
+        <com.google.android.material.appbar.CollapsingToolbarLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:scrimAnimationDuration="300"
+            app:contentScrim="@color/transparent"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|enterAlways">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="81dp"
+                android:layout_gravity="top"
+                app:contentInsetStart="0dp"
+                app:layout_collapseMode="pin">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <View
+                        android:id="@+id/fake_statusbar_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/statusbar_view_height"
+                        android:background="@color/colorPrimary"
+                        app:layout_collapseMode="pin"
+                        android:elevation="0dp"/>
+
+                    <LinearLayout
+                        android:paddingEnd="16dp"
+                        android:paddingStart="16dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:gravity="center_vertical|end">
+
+                        <FrameLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:visibility="visible">
+
+                            <ImageButton
+                                android:id="@+id/btnBack"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:background="@color/transparent"
+                                android:tint="@color/md_white_1000"
+                                app:srcCompat="@drawable/ic_arrow_back_24" />
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_marginStart="8dp"
+                            android:id="@+id/btnSearch"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="40dp"
+                            android:background="@drawable/bg_round_white"
+                            android:gravity="start|center_vertical"
+                            android:paddingLeft="16dp"
+                            android:paddingRight="16dp">
+
+                            <ImageButton
+                                android:layout_marginEnd="8dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="@color/transparent"
+                                android:clickable="false"
+                                android:tint="@color/md_grey_600"
+                                app:srcCompat="@drawable/ic_search_24" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:clickable="false"
+                                style="@style/FontStyleBody"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center_vertical"
+                                android:background="@color/transparent"
+                                android:text="Search article..."
+                                android:textColor="@color/md_grey_500" />
+
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="16dp"/>
+
+        <TextView
+            android:id="@+id/tvCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Category: General"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tvTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="Article List"
+            style="@style/FontStyleHeading_Bold"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/tvCategory" />
+
+        <com.airbnb.epoxy.EpoxyRecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
+            android:requiresFadingEdge="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:layout_constraintStart_toStartOf="@+id/guideline5"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:visibility="invisible"
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/guideline6"
+            app:srcCompat="@drawable/ic_arrow_upward_24"
+            android:tint="@color/md_white_1000"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
