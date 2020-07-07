@@ -61,7 +61,7 @@ class VM_Article_Search(private val context: Context): ViewModel() {
     }
 
     fun resetDataArticle() {
-        dataArticle.value = DataArticle(ArticleListModel(), NetworkState.FAILED)
+        dataArticle.value = DataArticle(ArticleListModel(), NetworkState.LOADED)
     }
 
     class VMF_Article_Search(private val context: Context): ViewModelProvider.NewInstanceFactory() {

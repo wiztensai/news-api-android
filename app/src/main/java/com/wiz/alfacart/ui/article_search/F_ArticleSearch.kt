@@ -96,8 +96,11 @@ class F_ArticleSearch(val sourceId:String, val category:String) : BaseFragment()
                         bind.btnClearText.visibility = View.VISIBLE
                         vm.search(sourceId, it)
                         keyword = it
+                        bind.recyclerView.visibility = View.VISIBLE
                     } else {
                         bind.btnClearText.visibility = View.INVISIBLE
+                        bind.recyclerView.visibility = View.INVISIBLE
+                        bind.fab.hide()
                     }
                 }
             }.autoDispose()
