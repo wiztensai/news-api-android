@@ -1,5 +1,5 @@
 ### Introduction
-Apps ini menggunakan API dari https://newsapi.org/. Apps ini dibuat sebagai tes dari Alfa Digital. Apps ini dibuat kurang lebih 2 hari, oleh karena itu, jika ada kode-kode yang kurang baik/ clean, mohon dimaklumi.
+Apps ini menggunakan API dari https://newsapi.org/
 
 ### Library
 - Epoxy AirBnb
@@ -10,8 +10,3 @@ Oleh karena itu, dapat flexible terhadap kebutuhan proses bisnis.
 - Coroutine
 - Retrofit
 - dst...
-
-Demikian info dari saya,
-
-Salam hormat,
-Nanang Fitrianto
